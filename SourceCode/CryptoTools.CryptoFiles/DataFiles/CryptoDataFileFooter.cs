@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CryptoTools.CryptoFiles.DataFiles
+{
+	/// <summary>
+	/// Data structure that represents the File header of the data file
+	/// </summary>
+	public class CryptoDataFileFooter
+	{
+		#region Public Data Fields
+		public byte[] ReservedArea { get; set; } = new byte[64]
+			{
+			0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7,
+			0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7,
+			0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7,
+			0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7,
+			0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7,
+			0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7,
+			0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7,
+			0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7
+			};
+		public byte[] FileHash { get; set; } = new byte[32];
+		public byte[] EndFileFormat { get; set; } = new byte[2];
+		#endregion
+
+		#region Internal Data Field Sized
+		internal int ReservedAreaSize { get { return ReservedArea.Length; } }
+		internal int FileHashSize { get { return FileHash.Length; } }
+		internal int EndFileFormatSize { get { return EndFileFormat.Length; } }
+		internal int FooterLength { get { return ReservedAreaSize + FileHashSize + EndFileFormatSize; } }
+		#endregion
+	}
+}

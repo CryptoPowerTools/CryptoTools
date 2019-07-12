@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CryptoTools.Common\CryptoTools.Common.csproj" />
+    <ProjectReference Include="..\CryptoTools.Cryptography\CryptoTools.Cryptography.csproj" />
+  </ItemGroup>
+
+</Project>
