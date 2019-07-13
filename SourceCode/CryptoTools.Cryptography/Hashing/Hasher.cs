@@ -1,5 +1,11 @@
 ﻿using System;
+
+/* Unmerged change from project 'CryptoTools.Cryptography (net461)'
+Before:
 using CryptoTools.Common;
+After:
+using System;
+*/
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -8,11 +14,11 @@ using System.Text;
 
 namespace CryptoTools.Cryptography.Hashing
 {
-    /// <summary>
-    /// Creates Hashes using the .NET Cryptography Api. This is a Facade class using the Defaults or you can customize it by passing in 
-    /// a custom HasherOptions object.
-    /// </summary>
-    public class Hasher
+	/// <summary>
+	/// Creates Hashes using the .NET Cryptography Api. This is a Facade class using the Defaults or you can customize it by passing in 
+	/// a custom HasherOptions object.
+	/// </summary>
+	public class Hasher
 	{
 		#region Private Fields
 		private HashAlgorithm _algorithm;
@@ -27,14 +33,14 @@ namespace CryptoTools.Cryptography.Hashing
 		/// <summary>
 		/// Creates a Hasher with the default settings of SHA256 algorithm and default options
 		/// </summary>
-		public Hasher() : this(null ,null)	{}
+		public Hasher() : this(null, null) { }
 
-		
+
 		/// <summary>
 		/// Creates a Hasher with custom options.
 		/// </summary>
 		/// <param name="options"></param>
-		public Hasher(HasherOptions options) : this(null, options) {}
+		public Hasher(HasherOptions options) : this(null, options) { }
 
 		/// <summary>
 		/// Creates a Hasher with a specified algorithm and custom options
@@ -67,11 +73,11 @@ namespace CryptoTools.Cryptography.Hashing
 		/// <param name="algorithm"></param>
 		/// <returns></returns>
 		public static int CalculateHashLength(HashAlgorithm algorithm = null)
-		{			
+		{
 			HashAlgorithm a = algorithm == null ? SHA256.Create() : algorithm;
 			Hasher hasher = new Hasher(a);
 			string hash = hasher.Hash("test");
-			return hash.Length;			
+			return hash.Length;
 		}
 
 		/// <summary>
@@ -128,7 +134,7 @@ namespace CryptoTools.Cryptography.Hashing
 		{
 			string hash = "";
 			Byte[] bytes = _algorithm.ComputeHash(stream);
-			hash = BytesToHashSignature(bytes); 
+			hash = BytesToHashSignature(bytes);
 			return hash;
 		}
 
@@ -229,7 +235,7 @@ namespace CryptoTools.Cryptography.Hashing
 
 			// Create Additional Hashers for Complexity
 			Hasher sha512 = new Hasher(SHA512.Create());
-		
+
 			Stopwatch sw = Stopwatch.StartNew();
 			for (int i = 0; i < iterations - 1; i++)
 			{
@@ -241,7 +247,7 @@ namespace CryptoTools.Cryptography.Hashing
 
 			return hash;
 		}
-		
+
 		public string HashFile(string fileName)
 		{
 			string hash = "";
@@ -345,6 +351,6 @@ namespace CryptoTools.Cryptography.Hashing
 			}
 			return builder.ToString();
 		}
-		#endregion		
+		#endregion
 	}
 }

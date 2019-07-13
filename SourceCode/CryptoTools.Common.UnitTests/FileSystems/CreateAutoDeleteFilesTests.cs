@@ -1,8 +1,7 @@
-﻿using System;
+﻿using CryptoTools.Common.FileSystems;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.IO;
-using CryptoTools.Common.FileSystems;
 
 namespace CryptoTools.Common.UnitTests.FileSystems
 {
@@ -14,9 +13,9 @@ namespace CryptoTools.Common.UnitTests.FileSystems
 		{
 			FileManager fileMan = new FileManager();
 			const string SubDirectory = "TestFile";
-						
+
 			// Create Directory
-			using(CreateAutoDeleteDirectory directory = new CreateAutoDeleteDirectory(SubDirectory))
+			using (CreateAutoDeleteDirectory directory = new CreateAutoDeleteDirectory(SubDirectory))
 			{
 				Assert.IsTrue(fileMan.DirectoryExists(SubDirectory));
 			}
@@ -67,7 +66,7 @@ namespace CryptoTools.Common.UnitTests.FileSystems
 			}
 
 			// 1). Create Files
-			using(CreateAutoDeleteDirectory directory = new CreateAutoDeleteDirectory(SubDirectory))
+			using (CreateAutoDeleteDirectory directory = new CreateAutoDeleteDirectory(SubDirectory))
 			{
 				using (CreateAutoDeleteFiles file = new CreateAutoDeleteFiles(files))
 				{
@@ -90,7 +89,7 @@ namespace CryptoTools.Common.UnitTests.FileSystems
 					foreach (FileInfo info in files)
 					{
 						Assert.IsTrue(info.Length == 200);
-					}					
+					}
 				}
 			}
 			// Make sure they dont exist and they have been deleted
@@ -99,6 +98,6 @@ namespace CryptoTools.Common.UnitTests.FileSystems
 		}
 
 
-		
+
 	}
 }

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Common.FileSystems
 {
@@ -14,7 +11,7 @@ namespace CryptoTools.Common.FileSystems
 
 		public AutoDeleteFiles(IList<FileInfo> files)
 		{
-			_files = files;			
+			_files = files;
 		}
 		public AutoDeleteFiles(string fileName)
 		{

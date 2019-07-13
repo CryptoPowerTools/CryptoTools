@@ -3,7 +3,7 @@ using System;
 
 namespace CryptoTools.Cryptography.Guids
 {
-    public class DotNetGuidAlgorithm : IGuidAlgorithm
+	public class DotNetGuidAlgorithm : IGuidAlgorithm
 	{
 		public string NewGuid()
 		{
@@ -11,17 +11,17 @@ namespace CryptoTools.Cryptography.Guids
 			string stringGuid = guid.ToString("N");
 
 			return stringGuid;
-			 
+
 		}
 
 		public bool Verify(string guid)
 		{
-			if(string.IsNullOrWhiteSpace(guid))
+			if (string.IsNullOrWhiteSpace(guid))
 			{
 				return false;
 			}
 			// Check 32 chars long
-			if(guid.Length != 32)
+			if (guid.Length != 32)
 			{
 				return false;
 			}

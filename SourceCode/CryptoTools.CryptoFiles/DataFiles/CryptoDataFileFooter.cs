@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CryptoTools.CryptoFiles.DataFiles
+﻿namespace CryptoTools.CryptoFiles.DataFiles
 {
 	/// <summary>
 	/// Data structure that represents the File header of the data file

@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CryptoTools.Cryptography.Hashing;
+﻿using CryptoTools.Cryptography.Hashing;
 using CryptoTools.Cryptography.Utils;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Security;
 using System.Security.Cryptography;
 
@@ -19,7 +18,7 @@ namespace CryptoTools.Cryptography.UnitTests.Hashing
 			string password = "My Passord";
 			SecureString securePassword = CryptoString.StringToSecureString(password);
 			CryptoString cryptoPassword = new CryptoString(securePassword);
-			
+
 			// Create the Hash
 			PasswordHasher hasher = new PasswordHasher();
 			string hash = hasher.PasswordHash(cryptoPassword);
@@ -34,24 +33,24 @@ namespace CryptoTools.Cryptography.UnitTests.Hashing
 
 			// SUCCESS - GOOD Password and Hash
 			Assert.IsTrue(hasher.PasswordCheck(cryptoPassword, hash));
-			
+
 		}
 
 		[TestMethod]
 		public void PasswordHasher_BasicUsageWiki()
-		{			
-// Create password -> SecureString -> CryptpString
-string password = "My Passord";
-PasswordHasher hasher = new PasswordHasher();
-SecureString securePassword = CryptoString.StringToSecureString(password);
-CryptoString cryptoPassword = new CryptoString(securePassword);
+		{
+			// Create password -> SecureString -> CryptpString
+			string password = "My Passord";
+			PasswordHasher hasher = new PasswordHasher();
+			SecureString securePassword = CryptoString.StringToSecureString(password);
+			CryptoString cryptoPassword = new CryptoString(securePassword);
 
-// Create the Hash
-string hash = hasher.PasswordHash(cryptoPassword);
+			// Create the Hash
+			string hash = hasher.PasswordHash(cryptoPassword);
 
-// Check the password against the hash, salt and pepper
-bool valid = hasher.PasswordCheck(cryptoPassword, hash);
-			
+			// Check the password against the hash, salt and pepper
+			bool valid = hasher.PasswordCheck(cryptoPassword, hash);
+
 		}
 	}
 }

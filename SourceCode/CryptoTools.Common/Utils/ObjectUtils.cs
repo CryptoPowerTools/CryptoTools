@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Common.Utils
 {
@@ -49,7 +45,7 @@ namespace CryptoTools.Common.Utils
 				var t = source.GetType();
 
 				foreach (PropertyInfo pi in t.GetProperties(BindingFlags.Public | BindingFlags.Instance))
-				{				
+				{
 					/////////////////////////////////////////////////
 					// Handle Strings
 					/////////////////////////////////////////////////
@@ -75,7 +71,7 @@ namespace CryptoTools.Common.Utils
 							pi.SetValue(destination, pi.GetValue(source));
 						}
 					}
-					
+
 					/////////////////////////////////////////////////
 					// Handle objects
 					/////////////////////////////////////////////////
@@ -86,7 +82,7 @@ namespace CryptoTools.Common.Utils
 						{
 							pi.SetValue(destination, pi.GetValue(source));
 						}
-					}					
+					}
 				}
 			}
 			return destination;

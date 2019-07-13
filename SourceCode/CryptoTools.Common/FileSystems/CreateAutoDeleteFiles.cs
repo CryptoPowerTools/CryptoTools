@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Common.FileSystems
 {
@@ -16,7 +13,7 @@ namespace CryptoTools.Common.FileSystems
 		{
 			_files = files;
 
-			foreach(FileInfo info in _files)
+			foreach (FileInfo info in _files)
 			{
 				if (fillWithBytes)
 				{
@@ -42,10 +39,10 @@ namespace CryptoTools.Common.FileSystems
 			{
 				bool b = _fileMan.IsFileLocked(info);
 
-				if(!b)
+				if (!b)
 				{
 					File.Delete(info.FullName);
-				}				
+				}
 			}
 		}
 	}

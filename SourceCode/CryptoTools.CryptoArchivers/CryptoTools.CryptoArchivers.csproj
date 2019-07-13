@@ -1,17 +1,36 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-  </PropertyGroup>
+		<TargetFrameworks>netcoreapp2.0;net461</TargetFrameworks>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="DotNetZip" Version="1.13.3" />
-    <PackageReference Include="SharpCompress" Version="0.23.0" />
-  </ItemGroup>
 
+	<PropertyGroup>
+		<TargetFrameworks>netcoreapp2.0;net461</TargetFrameworks>
+		<Version>2.0.1</Version>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Crypto Power Tools Developer</Authors>
+		<Company>Crypto Power Tools</Company>
+		<Product>Crypto Power Tools Suite</Product>
+		<Description>CryptoTools.Archivers contains reusable code to zip, unzip, compress, uncompress files and directories using a very simple one or two lines of code. It also makes it easy to either write the output to a file OR return the raw bytes if you would like to store the zip/compressed data into the cloud or a database. Archivers also provides a generic interface base class to abstract this functionality simply by implementing your own code as required that will plug into this archiver.
+
+Crypto Power Tools - C# / .Net Core 2.0 Developer re-usable libraries &amp; tools for creating powerful, lightweight, secure, private and secure applications.
+
+We are developing these foundation components as building blocks to server both productivity benefits and transparency to our clients and customers. We hope that by sharing this source we can build trust in the community with the benefit of helping other projects to incorporate tested, proven software components into their own solutions with minimal risk.
+
+There are complete Unit Tests and source code on Github. We encourage you to download and explore as your wish.
+
+Our long term goals of our open source software is to encourage other developers to contribute to these community components to provide an even more SOLID and productive starting point for new and existing projects within their own organization.
+		</Description>
+		<Copyright>Crypto Power Tools</Copyright>
+		<RepositoryUrl>https://github.com/CryptoPowerTools/CryptoTools.git</RepositoryUrl>
+		<RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+		<AssemblyVersion>2.0.1.0</AssemblyVersion>
+		<FileVersion>2.0.1.0</FileVersion>
+	</PropertyGroup>
+	
   <ItemGroup>
     <ProjectReference Include="..\CryptoTools.Common\CryptoTools.Common.csproj" />
-    <ProjectReference Include="..\CryptoTools.CryptoFiles\CryptoTools.CryptoFiles.csproj" />
     <ProjectReference Include="..\CryptoTools.Cryptography\CryptoTools.Cryptography.csproj" />
   </ItemGroup>
 

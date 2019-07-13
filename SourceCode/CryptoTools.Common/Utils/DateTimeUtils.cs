@@ -13,14 +13,14 @@ namespace CryptoTools.Common.Utils
 		// will throw an error so this could be changed to '01/01/1753' using SqlDateTime.MinValue if there is good reason.
 		// The good news is that is you use the Empty property to check equality in your app... you can safely 
 		// change the default value of _empty with no side effects.
-		
+
 
 		/// <summary>
 		/// Represents an empty DateTime. This is the ONLY place in the application where the concept of "Empty"
 		/// resides.
 		/// </summary>
 		public static readonly DateTime Empty = DateTime.MinValue;
-		
+
 		/// <summary>
 		/// Converts a nullable DataTime to a DateTime object. If the value is null it return the DateTime.Empty value
 		/// </summary>
@@ -54,7 +54,7 @@ namespace CryptoTools.Common.Utils
 			return false;
 		}
 
-		
+
 		/// <summary>
 		/// Strips the millisecond precision of the date time argument.
 		/// 

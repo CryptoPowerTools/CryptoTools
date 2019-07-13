@@ -1,6 +1,5 @@
-﻿using System;
+﻿using CryptoTools.Cryptography.Guids;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CryptoTools.Cryptography.Guids;
 
 namespace CryptoTools.Cryptography.UnitTests.Guids
 {
@@ -16,12 +15,12 @@ namespace CryptoTools.Cryptography.UnitTests.Guids
 			algorithm = new DotNetGuidAlgorithm();
 			string guid = algorithm.NewGuid();
 			bool isValid = algorithm.Verify(guid);
-			
+
 			// Md5 Algorithm
 			algorithm = new Md5GuidAlgorithm();
 			guid = algorithm.NewGuid();
 			isValid = algorithm.Verify(guid);
-			
+
 			// Sha256 Algorithm
 			algorithm = new Sha256GuidAlgorithm();
 			guid = algorithm.NewGuid();
@@ -33,7 +32,7 @@ namespace CryptoTools.Cryptography.UnitTests.Guids
 		{
 			//// Application Set Defaults
 			CryptoGuid.SetDefaultAlgorithm(new DotNetGuidAlgorithm()); // Set Once in the Application ... throw exception on 2nd time.
-			
+
 			//// Instance Based w/ No Factor Defaults
 			string guid = CryptoGuid.NewGuid();
 			bool isValid = CryptoGuid.Verify(guid);

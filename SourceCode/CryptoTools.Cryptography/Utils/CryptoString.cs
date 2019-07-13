@@ -1,14 +1,10 @@
 ﻿using CryptoTools.Common.FileSystems;
 using CryptoTools.Cryptography.Hashing;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Cryptography.Utils
 {
@@ -27,7 +23,7 @@ namespace CryptoTools.Cryptography.Utils
 		#region Constructors
 		public CryptoString(SecureString secureString)
 		{
-			_secureString = secureString;			
+			_secureString = secureString;
 		}
 
 		public CryptoString(string passphrase) : this(CryptoString.StringToSecureString(passphrase))
@@ -45,7 +41,7 @@ namespace CryptoTools.Cryptography.Utils
 			HashAlgorithm a = algorithm == null ? SHA256.Create() : algorithm;
 			Hasher hasher = new Hasher(a);
 			string hash = hasher.Hash(CryptoString.SecureStringToString(GetSecureString()));
-			return hash;			
+			return hash;
 		}
 
 		#region Useful Public Static Methods
@@ -59,7 +55,7 @@ namespace CryptoTools.Cryptography.Utils
 		public static string GenerateRandomText(int approximateLength)
 		{
 			ByteGenerator generator = new ByteGenerator();
-			byte[] bytes = generator.GenerateBytes(approximateLength/2);
+			byte[] bytes = generator.GenerateBytes(approximateLength / 2);
 			string result = BytesToString(bytes);
 			return result;
 		}
@@ -75,7 +71,7 @@ namespace CryptoTools.Cryptography.Utils
 			foreach (Byte b in bytes)
 			{
 				builder.Append(b.ToString("x2"));
-				
+
 			}
 			return builder.ToString();
 		}
@@ -103,7 +99,7 @@ namespace CryptoTools.Cryptography.Utils
 		/// <param name="value"></param>
 		/// <returns></returns>
 		public static CryptoString StringToCryptoString(string value)
-		{			
+		{
 			CryptoString cryptoString = new CryptoString(StringToSecureString(value));
 			value = GenerateRandomText(10000);
 			return cryptoString;

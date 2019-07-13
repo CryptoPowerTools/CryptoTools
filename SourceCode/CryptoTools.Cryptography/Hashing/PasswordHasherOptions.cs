@@ -1,10 +1,4 @@
 ﻿using CryptoTools.Common.Reflection;
-using CryptoTools.Common.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Cryptography.Hashing
 {
@@ -15,7 +9,7 @@ namespace CryptoTools.Cryptography.Hashing
 	{
 		public string Salt { get; set; }
 		public string PepperChars { get; set; }
-	
+
 		public PasswordHasherOptions()
 		{
 		}
@@ -24,7 +18,7 @@ namespace CryptoTools.Cryptography.Hashing
 		{
 			PasswordHasherOptions result = DefaultOptionsBuilder.MergeOptions<PasswordHasherOptions>(GlobalCryptographyOptions.PasswordHasherOptions, options);
 			return result;
-		}		
+		}
 	}
 
 }

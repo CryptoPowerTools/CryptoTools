@@ -1,9 +1,9 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CryptoTools.Common.FileSystems;
+﻿using CryptoTools.Common.FileSystems;
 using CryptoTools.Cryptography.Utils;
-using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Diagnostics;
+using System.Linq;
 
 namespace CryptoTools.Cryptography.UnitTests.Utils
 {
@@ -22,11 +22,11 @@ namespace CryptoTools.Cryptography.UnitTests.Utils
 				{
 					Passphrase = new CryptoString("My Passphrase"),
 					Pin = 2222
-				};				
+				};
 
 				// Create the Blob object and assign Encrypt some Bytes
 				CryptoBlob blob = new CryptoBlob(credentials, bytes);
-								
+
 				// Retrieve the Decrypted Bytes
 				byte[] decryptedBytes = blob.Decrypt();
 
@@ -44,7 +44,7 @@ namespace CryptoTools.Cryptography.UnitTests.Utils
 			{
 				Debug.WriteLine(e.Message);
 				throw;
-			}		
+			}
 		}
 
 		[TestMethod]
@@ -53,7 +53,7 @@ namespace CryptoTools.Cryptography.UnitTests.Utils
 			try
 			{
 				//byte[] bytes = new ByteGenerator().GenerateBytes(10);
-				byte[] bytes = new byte[] { 0x00, 0x00 } ;
+				byte[] bytes = new byte[] { 0x00, 0x00 };
 
 				// Create Credentials
 				CryptoCredentials credentials = new CryptoCredentials
@@ -74,11 +74,11 @@ namespace CryptoTools.Cryptography.UnitTests.Utils
 
 				bool diff = encryptedBytes.SequenceEqual(encryptedBytes2);
 
-				
+
 				//byte[] decryptedBytes = blob.Decrypt();
 				//byte[] encryptedBytes = blob.GetEncryptedBytes();
 				//blob.SetEncryptedBytes(encryptedBytes);
-				
+
 				// Validates the Checksum of the blob and throws an exception if the Blob fails the integrity check
 				blob.ValidateChecksum();
 
@@ -104,7 +104,7 @@ namespace CryptoTools.Cryptography.UnitTests.Utils
 			for (int i = 0; i < iterations; i++)
 			{
 				try
-				{				
+				{
 					// Create Credentials
 					CryptoCredentials credentials = new CryptoCredentials
 					{
@@ -136,7 +136,7 @@ namespace CryptoTools.Cryptography.UnitTests.Utils
 					throw;
 				}
 			}
-				
+
 		}
 	}
 }

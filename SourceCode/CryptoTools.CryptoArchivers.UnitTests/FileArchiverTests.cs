@@ -1,13 +1,10 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CryptoTools.Cryptography.Utils;
-using CryptoTools.Common.FileSystems;
-using System.IO;
-using System.Collections.Generic;
-using CryptoTools.Cryptography.Hashing;
-using System.Linq;
-using System.Diagnostics;
+﻿using CryptoTools.Common.FileSystems;
 using CryptoTools.CryptoArchivers.Archivers;
+using CryptoTools.Cryptography.Hashing;
+using CryptoTools.Cryptography.Utils;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.IO;
 
 namespace CryptoTools.CryptoArchivers.UnitTests
 {
@@ -21,7 +18,7 @@ namespace CryptoTools.CryptoArchivers.UnitTests
 		public void FileArchiver_BasicUsage()
 		{
 			// Arrange
-			 CryptoCredentials credentials = new CryptoCredentials
+			CryptoCredentials credentials = new CryptoCredentials
 			{
 				Passphrase = new CryptoString("My Passphrase"),
 				Pin = 2222
@@ -84,7 +81,7 @@ namespace CryptoTools.CryptoArchivers.UnitTests
 					CryptoArchiver archiver = new CryptoArchiver(zipArchiveFileName, new ZipArchiver(zipArchiveFileName));
 					archiver.Credentials = credentials;
 					archiver.CreateFromDirectory(directoryName1);
-				
+
 					// Extract all files
 					archiver.ExtractToDirectory(extractDirectory);
 
@@ -188,7 +185,7 @@ namespace CryptoTools.CryptoArchivers.UnitTests
 					CryptoArchiver archiver = new CryptoArchiver(zipArchiveFileName, new ZipArchiver(zipArchiveFileName));
 					archiver.Credentials = credentials;
 					archiver.CreateFromDirectory(directoryName1);
-				
+
 					// Extract all files
 					archiver.ExtractToDirectory(extractDirectory);
 
@@ -207,8 +204,8 @@ namespace CryptoTools.CryptoArchivers.UnitTests
 			int index = randomizer.Next(0, directories.Count);
 			return directories[index].FullName;
 		}
-		
-		
+
+
 		//[TestMethod]
 		//public void FileArchiver_StressTest()
 		//{

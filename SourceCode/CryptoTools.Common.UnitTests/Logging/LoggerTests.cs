@@ -1,6 +1,5 @@
-﻿using System;
+﻿using CryptoTools.Common.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CryptoTools.Common.Logging;
 
 namespace CryptoTools.Common.UnitTests.Logging
 {

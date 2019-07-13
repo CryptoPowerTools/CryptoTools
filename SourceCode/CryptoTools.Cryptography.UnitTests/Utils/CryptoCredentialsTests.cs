@@ -1,7 +1,7 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using CryptoTools.Cryptography.Hashing;
 using CryptoTools.Cryptography.Utils;
-using CryptoTools.Cryptography.Hashing;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace CryptoTools.Cryptography.UnitTests.Utils
 {
@@ -17,7 +17,7 @@ namespace CryptoTools.Cryptography.UnitTests.Utils
 				Pin = 2222
 			};
 
-			
+
 			// Check what  credentials are used
 			bool passphraseUsed = credentials.UsePassphrase;
 			bool pinUsed = credentials.UsePin;
@@ -67,7 +67,7 @@ namespace CryptoTools.Cryptography.UnitTests.Utils
 			Assert.IsFalse(credentials.UsePin);
 			credentials.Pin = pin;
 			Assert.IsTrue(credentials.UsePin);
-			
+
 			string key = credentials.Key;
 			Assert.IsTrue(Hasher.IsHashValid(key));
 		}

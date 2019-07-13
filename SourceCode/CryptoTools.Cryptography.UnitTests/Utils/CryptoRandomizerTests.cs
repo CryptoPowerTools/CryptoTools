@@ -1,6 +1,5 @@
-﻿using System;
+﻿using CryptoTools.Cryptography.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CryptoTools.Cryptography.Utils;
 
 namespace CryptoTools.Cryptography.UnitTests.Utils
 {

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Common.Logging
 {
@@ -59,7 +55,7 @@ namespace CryptoTools.Common.Logging
 	public class Logger
 	{
 		public static ILog _logger;
-		
+
 		#region Public Static Methods
 		/// <summary>
 		/// Gets a logger for a class to use. In practice you can use reflection to reflect the Type of type parameter, however, if you require absolute performance,
@@ -74,7 +70,7 @@ namespace CryptoTools.Common.Logging
 		/// <returns></returns>
 		public static ILog CreateInstance(Type type)
 		{
-			if(_logger == null)
+			if (_logger == null)
 			{
 				_logger = new DebugLogger();
 			}
@@ -82,7 +78,7 @@ namespace CryptoTools.Common.Logging
 			// Creates a new instance of a logger for each logger
 			ILog instance = _logger.CreateInstance(type);
 
-			return instance;			
+			return instance;
 		}
 
 		public static void SetLogger(ILog logger)

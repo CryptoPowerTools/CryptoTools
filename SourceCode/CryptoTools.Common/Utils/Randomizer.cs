@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Common.Utils
 {
@@ -16,17 +12,17 @@ namespace CryptoTools.Common.Utils
 		{
 			get
 			{
-				if(instance == null)
+				if (instance == null)
 				{
 					instance = new Random();
 				}
 				return instance;
-			}			
+			}
 		}
 
 		public static int GetInt(int minVal, int maxVal)
 		{
-			return Instance.Next(minVal, maxVal);			
+			return Instance.Next(minVal, maxVal);
 		}
 
 		public static void GetBytes(byte[] bytes)

@@ -1,9 +1,6 @@
 ﻿using CryptoTools.Common.Utils;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Common.FileSystems
 {
@@ -37,7 +34,7 @@ namespace CryptoTools.Common.FileSystems
 			StringBuilder builder = new StringBuilder();
 			foreach (Byte b in bytes)
 			{
-				builder.Append(b.ToString("x2"));				
+				builder.Append(b.ToString("x2"));
 			}
 			return builder.ToString();
 		}

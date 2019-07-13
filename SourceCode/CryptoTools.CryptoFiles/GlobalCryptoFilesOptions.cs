@@ -1,9 +1,4 @@
 ﻿using CryptoTools.CryptoFiles.DataFiles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.CryptoFiles
 {
@@ -34,5 +29,5 @@ namespace CryptoTools.CryptoFiles
 				EndFileFormat = new byte[] { 0xAA, 0xFF }
 			};
 		}
-	}	
-}	
+	}
+}

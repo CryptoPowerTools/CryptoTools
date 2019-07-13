@@ -1,11 +1,11 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CryptoTools.CryptoFiles.DataFiles;
-using System.Collections.Generic;
-using CryptoTools.Common.FileSystems;
+﻿using CryptoTools.Common.FileSystems;
 using CryptoTools.Common.Utils;
-using System.Linq;
+using CryptoTools.CryptoFiles.DataFiles;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace CryptoTools.CryptoFiles.UnitTests.DataFiles.SecureTextFiles
 {
@@ -21,7 +21,7 @@ namespace CryptoTools.CryptoFiles.UnitTests.DataFiles.SecureTextFiles
 			string fileName = "SecureTextFile.txt";
 			SecureTextFile file = new SecureTextFile(fileName);
 			string text = "TEST" + Environment.NewLine + "AGAIN" + Environment.NewLine + Environment.NewLine; //new TextGenerator() { ApproxLineLength = 25 }.GenerateText(20000);
-			//string text = new TextGenerator() { ApproxLineLength = 25 }.GenerateText(20000);
+																											  //string text = new TextGenerator() { ApproxLineLength = 25 }.GenerateText(20000);
 
 
 			/////////////////////////////////////////////////////////////////////
@@ -34,8 +34,8 @@ namespace CryptoTools.CryptoFiles.UnitTests.DataFiles.SecureTextFiles
 			File.WriteAllText("filetest.txt", textIn);
 			string textResult = file.ReadAllText();
 			string fileTextResult = File.ReadAllText("filetest.txt");
-			
-			
+
+
 			// Write & Read Text Lines
 			IList<string> lines = StringUtils.StringToStringArray(text).ToList();
 			file.WriteAllLines(lines);
@@ -69,7 +69,7 @@ namespace CryptoTools.CryptoFiles.UnitTests.DataFiles.SecureTextFiles
 			for (int i = 0; i < iterations; i++)
 			{
 				SecureTextFile file = new SecureTextFile(fileName);
-			
+
 				// Write & Read ALL Text
 				string textIn = text;
 				file.WriteAllText(textIn);
@@ -98,7 +98,7 @@ namespace CryptoTools.CryptoFiles.UnitTests.DataFiles.SecureTextFiles
 			/////////////////////////////////////////////////////////////////////
 			string fileName = "SecureTextFile.dat";
 			int iterations = 3;
-			int fileSize = 10000; 
+			int fileSize = 10000;
 			FileManager fileMan = new FileManager();
 			string text = new TextGenerator() { ApproxLineLength = 25 }.GenerateText(fileSize);
 
@@ -108,7 +108,7 @@ namespace CryptoTools.CryptoFiles.UnitTests.DataFiles.SecureTextFiles
 			for (int i = 0; i < iterations; i++)
 			{
 				SecureTextFile file = new SecureTextFile(fileName);
-				
+
 				// Write & Read ALL Text
 				string textIn = text;
 				file.WriteAllText(textIn);

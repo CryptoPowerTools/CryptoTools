@@ -1,9 +1,6 @@
 ﻿using CryptoTools.Common.Utils;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.CryptoFiles.DataFiles
 {
@@ -12,9 +9,9 @@ namespace CryptoTools.CryptoFiles.DataFiles
 	/// Secure Text Data File is specific implementation of CryptoDataFile that allows you to store plain text in an encrypted file.
 	/// </summary>
 	public class SecureTextFile : CryptoDataFile
-	{	
+	{
 
-		public SecureTextFile(string fullFileName) : base(new CryptoDataFileOptions { ContentFormat= new byte[] { 0xB, 0x0 } }, fullFileName)
+		public SecureTextFile(string fullFileName) : base(new CryptoDataFileOptions { ContentFormat = new byte[] { 0xB, 0x0 } }, fullFileName)
 		{
 			FullFileName = fullFileName;
 		}
@@ -24,7 +21,7 @@ namespace CryptoTools.CryptoFiles.DataFiles
 		{
 			Content = StringUtils.TextToBytes(text);
 			Save();
-			
+
 		}
 
 		public void WriteAllLines(string[] lines)
@@ -41,7 +38,7 @@ namespace CryptoTools.CryptoFiles.DataFiles
 		public IList<string> ReadAllLines()
 		{
 			return StringUtils.StringToStringArray(ReadAllText());
-		}		
+		}
 
 		public string ReadAllText()
 		{
@@ -51,6 +48,6 @@ namespace CryptoTools.CryptoFiles.DataFiles
 		}
 
 
-		
+
 	}
 }

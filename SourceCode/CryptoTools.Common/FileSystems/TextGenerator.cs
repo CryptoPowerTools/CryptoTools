@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Common.FileSystems
 {
@@ -21,14 +18,14 @@ namespace CryptoTools.Common.FileSystems
 		{
 		}
 
-	
+
 		public string GenerateText(int length)
 		{
 			Random random = new Random();
 			StringBuilder result = new StringBuilder(length);
 			int lengthCounter = 0;
 			for (int i = 0; i < length; i++)
-			{			
+			{
 				// Make a word.
 				string word = "";
 				int wordLength = random.Next(ApproxWordLength + 3);

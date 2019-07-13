@@ -1,14 +1,12 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CryptoTools.Cryptography.Symmetric;
-using CryptoTools.Common.FileSystems;
-using System.Linq;
-using System.Security.Cryptography;
-using CryptoTools.Cryptography.Utils;
-using System.Diagnostics;
-using CryptoTools.Cryptography.Exceptions;
-using CryptoTools.Cryptography.Hashing;
+﻿using CryptoTools.Common.FileSystems;
 using CryptoTools.Common.Utils;
+using CryptoTools.Cryptography.Exceptions;
+using CryptoTools.Cryptography.Symmetric;
+using CryptoTools.Cryptography.Utils;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Diagnostics;
+using System.Linq;
 
 namespace CryptoTools.Cryptography.UnitTests.Symmetric
 {
@@ -36,7 +34,7 @@ namespace CryptoTools.Cryptography.UnitTests.Symmetric
 
 				// Decrypt
 				decryptedBuffer = encryptor.DecryptBytes(encryptedBuffer);
-			} 
+			}
 
 			// Assert - Check to make sure the bytes are all the same
 			Assert.IsTrue(buffer.SequenceEqual(decryptedBuffer));
@@ -94,7 +92,7 @@ namespace CryptoTools.Cryptography.UnitTests.Symmetric
 
 				}
 			} // IDispose - Closes and clears the keys in memory
-			
+
 		}
 
 		[TestMethod]
@@ -131,7 +129,7 @@ namespace CryptoTools.Cryptography.UnitTests.Symmetric
 
 				// Assert - Check to make sure the bytes are all the same
 				Assert.IsTrue(buffer.SequenceEqual(decryptedBuffer));
-			}			
+			}
 		}
 
 
@@ -140,18 +138,18 @@ namespace CryptoTools.Cryptography.UnitTests.Symmetric
 		public void BasicUsage_MultiThreadHeavyUsuage()
 		{
 			// TODO
-			
+
 			//// Create a thread callback
-			
+
 			//// Act - Encrypt
-			
+
 			//// Launce all the threads
 
-			
+
 			//// Wait for all threads to finish
-			
+
 			///Wait
-			
+
 		}
 
 
@@ -169,7 +167,7 @@ namespace CryptoTools.Cryptography.UnitTests.Symmetric
 				Pin = 2222
 			};
 
-			byte[] buffer = new ByteGenerator().GenerateBytes(100);		
+			byte[] buffer = new ByteGenerator().GenerateBytes(100);
 			byte[] decryptedBuffer;
 			byte[] encryptedBuffer;
 
@@ -224,9 +222,9 @@ namespace CryptoTools.Cryptography.UnitTests.Symmetric
 				{
 					Debug.WriteLine(exception.Message);
 					Assert.Fail("Test was not expecting an Exception");
-				}				
+				}
 			}
 
-		}		
+		}
 	}
 }

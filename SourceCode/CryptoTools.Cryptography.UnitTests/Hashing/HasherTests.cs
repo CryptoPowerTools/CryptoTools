@@ -1,12 +1,9 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Security.Cryptography;
+﻿using CryptoTools.Common.FileSystems;
 using CryptoTools.Cryptography.Hashing;
-using CryptoTools.Common.FileSystems;
-using System.IO;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
-using System.Collections;
-using System.Collections.Generic;
+using System.IO;
+using System.Security.Cryptography;
 
 namespace CryptoTools.Cryptography.UnitTests.Hashing
 {
@@ -90,7 +87,7 @@ namespace CryptoTools.Cryptography.UnitTests.Hashing
 			// Compares 2 diretories for Equality based on all file contents in directory
 			bool match = sha256.CompareDirectoryHashSignatures(directoryRoot, directoryRoot2);
 			*/
-			
+
 		}
 
 		[TestMethod]
@@ -109,7 +106,7 @@ namespace CryptoTools.Cryptography.UnitTests.Hashing
 			sw.Stop();
 			Debug.WriteLine($"Approx execution time in milliseconds = {sw.ElapsedMilliseconds}");
 
-			
+
 			// Assert
 			// No way to really test this without rewriting the Secure Algorithm
 		}
@@ -161,7 +158,7 @@ namespace CryptoTools.Cryptography.UnitTests.Hashing
 			hash = sha512.Hash(message);
 			Assert.IsTrue(hash.Equals(hashSha512Expected));
 
-            // REMOVED to make .net core 2.0 compliant
+			// REMOVED to make .net core 2.0 compliant
 			//  Ripe Md 160 Test
 			//Hasher ripeMd160 = new Hasher(RIPEMD160.Create());
 			//hash = ripeMd160.Hash(message);
@@ -173,21 +170,21 @@ namespace CryptoTools.Cryptography.UnitTests.Hashing
 		public void HasherSetApplicationGlobalOptionsOnStartUp()
 		{
 			const string SaltApplicationGlobal = "AppSalt";
-		
+
 			// Set Gobal Options
 			GlobalCryptographyOptions.HasherOptions.Salt = SaltApplicationGlobal;
 			GlobalCryptographyOptions.HasherOptions.HashFingerprintLowercase = true;
-		
+
 			// Create Instance based on Application Global options
 			Hasher hasher1 = new Hasher();
-			Assert.IsTrue(hasher1.Options.Salt == SaltApplicationGlobal);			
+			Assert.IsTrue(hasher1.Options.Salt == SaltApplicationGlobal);
 		}
 
 		[TestMethod]
 		public void HasherSetInstanceOptions()
 		{
 			const string SaltInstance = "InstanceSalt";
-					
+
 			// Create Instance based on Instance options
 			Hasher hasher2 = new Hasher(new HasherOptions
 			{
@@ -195,7 +192,7 @@ namespace CryptoTools.Cryptography.UnitTests.Hashing
 
 			});
 			Assert.IsTrue(hasher2.Options.Salt == SaltInstance);
-			
+
 		}
 
 		[TestMethod]

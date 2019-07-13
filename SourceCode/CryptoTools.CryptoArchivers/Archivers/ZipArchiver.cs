@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using CryptoTools.Cryptography.Utils;
 using System.IO.Compression;
-using CryptoTools.Cryptography.Utils;
-using System.IO;
 
 namespace CryptoTools.CryptoArchivers.Archivers
 {
@@ -43,7 +39,7 @@ namespace CryptoTools.CryptoArchivers.Archivers
 
 		public bool RemoveFilesAfterSave { get; set; }
 
-	
+
 		public void CreateFromDirectory(string directoryName)
 		{
 			ZipFile.CreateFromDirectory(directoryName, _fileFullName, CompressionLevel.Optimal, true);
@@ -51,7 +47,7 @@ namespace CryptoTools.CryptoArchivers.Archivers
 
 		public void ExtractToDirectory(string directory)
 		{
-			ZipFile.ExtractToDirectory(_fileFullName, directory, true);
+			ZipFile.ExtractToDirectory(_fileFullName, directory);
 		}
 	}
 }

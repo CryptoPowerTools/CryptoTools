@@ -1,10 +1,4 @@
 ﻿using CryptoTools.Common.Reflection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Cryptography.Symmetric
 {
@@ -18,7 +12,7 @@ namespace CryptoTools.Cryptography.Symmetric
 		public string IVSalt { get; set; }
 		public string KeySalt { get; set; }
 		public string InitializationVector { get; set; }
-	
+
 		public SymmetricEncryptorOptions()
 		{
 		}
@@ -26,7 +20,7 @@ namespace CryptoTools.Cryptography.Symmetric
 		public static SymmetricEncryptorOptions CreateMergedInstance(SymmetricEncryptorOptions options = null)
 		{
 			// Merge Options with Global Options
-			SymmetricEncryptorOptions result = DefaultOptionsBuilder.MergeOptions< SymmetricEncryptorOptions>(GlobalCryptographyOptions.SymmetricEncryptorOptions, options);
+			SymmetricEncryptorOptions result = DefaultOptionsBuilder.MergeOptions<SymmetricEncryptorOptions>(GlobalCryptographyOptions.SymmetricEncryptorOptions, options);
 			return result;
 		}
 	}

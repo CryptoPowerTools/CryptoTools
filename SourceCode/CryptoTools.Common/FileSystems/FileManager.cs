@@ -1,12 +1,7 @@
-﻿using CryptoTools.Common.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Common.FileSystems
 {
@@ -39,7 +34,7 @@ namespace CryptoTools.Common.FileSystems
 		{
 			foreach (FileInfo info in files)
 			{
-				if(!File.Exists(info.FullName))
+				if (!File.Exists(info.FullName))
 				{
 					return false;
 				}
@@ -131,16 +126,29 @@ namespace CryptoTools.Common.FileSystems
 			}
 
 			File.Delete(fileName);
+
+/* Unmerged change from project 'CryptoTools.Common (net461)'
+Before:
 		}
 
 		
+		public FileInfo GetFileInfo(string fileName)
+After:
+		}
+
+
+		public FileInfo GetFileInfo(string fileName)
+*/
+		}
+
+
 		public FileInfo GetFileInfo(string fileName)
 		{
 			FileInfo info = new FileInfo(fileName);
 			return info;
 		}
 
-		
+
 
 		public void CreateWriteBytes(string fullFileName, byte[] bytes)
 		{
@@ -189,7 +197,7 @@ namespace CryptoTools.Common.FileSystems
 		public string GenerateTempFileName(string extension = "tmp", bool excludeTilde = false, int length = 10)
 		{
 			string name = new ByteGenerator().GenerateBytesString(length);
-			string tilde = excludeTilde == true ? "" : "~"; 		
+			string tilde = excludeTilde == true ? "" : "~";
 			string fileName = $"{tilde}{name}.{extension}";
 			return fileName;
 		}

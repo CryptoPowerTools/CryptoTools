@@ -157,3 +157,8 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 BuildArtifacts
+
+
+#Custom
+**/.vs/
+.vs/

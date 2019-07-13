@@ -1,16 +1,12 @@
-﻿using System;
+﻿using CryptoTools.Common.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CryptoTools.Common.Utils;
-using System.Reflection;
-using System.Diagnostics;
-using CryptoTools.Common.Reflection;
 
 namespace CryptoTools.Common.UnitTests.Reflection
 {
 
 
 	internal class TestClass
-	{	
+	{
 		public int? IntValue { get; set; }
 		public double? DoubleValue { get; set; }
 		public bool? BoolValue { get; set; }
@@ -26,17 +22,17 @@ namespace CryptoTools.Common.UnitTests.Reflection
 		public void ObjectUtils_MergeObjects_BasicUsage()
 		{
 
-		
+
 
 			/////////////////////////////////////
 			// Default Value
 			/////////////////////////////////////
 			TestClass defaultOptions = new TestClass
 			{
-				
+
 				BoolValue = false,
 				DoubleValue = 1.1,
-				IntValue = 11, 
+				IntValue = 11,
 				StringValue = "1111"
 			};
 
@@ -75,7 +71,7 @@ namespace CryptoTools.Common.UnitTests.Reflection
 			///////////////////////////////////////////////
 			extendedOptions = new TestClass
 			{
-				IntValue = 22				
+				IntValue = 22
 			};
 			merged = Common.Reflection.DefaultOptionsBuilder.MergeOptions<TestClass>(defaultOptions, extendedOptions);
 			Assert.IsTrue(merged.BoolValue == false);

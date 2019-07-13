@@ -1,15 +1,15 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CryptoTools.Common.FileSystems;
+﻿using CryptoTools.Common.FileSystems;
 using CryptoTools.CryptoFiles.DataFiles;
-using System.IO;
-using CryptoTools.Cryptography.Hashing;
-using System.Text;
-using System.Linq;
-using CryptoTools.Cryptography.Utils;
 using CryptoTools.CryptoFiles.Exceptions;
-using System.Collections.Generic;
 using CryptoTools.Cryptography.Exceptions;
+using CryptoTools.Cryptography.Hashing;
+using CryptoTools.Cryptography.Utils;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace CryptoTools.CryptoFiles.UnitTests.DataFiles
 {
@@ -36,9 +36,9 @@ namespace CryptoTools.CryptoFiles.UnitTests.DataFiles
 			string dataFileName1 = "EncryptedTestDataFile1.dat";
 			string dataFileName2 = "EncryptedTestDataFile2.dat";
 			//byte[] testBytes = new ByteGenerator().GenerateBytes(1000);
-			byte[] testBytes = new byte[] { 0x11 , 0x22};
+			byte[] testBytes = new byte[] { 0x11, 0x22 };
 			List<FileInfo> fileList = new List<FileInfo> { new FileInfo(dataFileName1), new FileInfo(dataFileName2) };
-					
+
 			fileOps.DeleteFile(dataFileName1);
 
 			using (AutoDeleteFiles deleteFiles = new AutoDeleteFiles(fileList))
@@ -71,7 +71,7 @@ namespace CryptoTools.CryptoFiles.UnitTests.DataFiles
 					file2.Credentials = credentials;
 					file2.EncryptFile = true;
 					file2.Load();
-										
+
 					// Compare the files they should be exactly the same
 					Assert.IsTrue(file1.Content.SequenceEqual(file2.Content));
 
@@ -102,10 +102,10 @@ namespace CryptoTools.CryptoFiles.UnitTests.DataFiles
 				catch (Exception ex)
 				{
 					Assert.IsTrue(true, ex.Message);
-				}				
+				}
 			}
 		}
-		
+
 		[TestMethod]
 		public void CryptoDataFile_SaveLoadFromBytesTest()
 		{
@@ -143,7 +143,7 @@ namespace CryptoTools.CryptoFiles.UnitTests.DataFiles
 
 			string dataFileName = "EncryptedFile.bin";
 			string fileContent = "My Test Content";
-			
+
 
 			using (AutoDeleteFiles autoDeleteFile = new AutoDeleteFiles(dataFileName))
 			{
@@ -223,16 +223,16 @@ namespace CryptoTools.CryptoFiles.UnitTests.DataFiles
 				}
 				catch (Exception)
 				{
-					Assert.Fail("Test was not expecting an Exception");	
+					Assert.Fail("Test was not expecting an Exception");
 				}
-			
 
 
 
 
-				
+
+
 				//Assert.IsTrue(dataFile.Content.SequenceEqual(dataFile2.Content));
-				
+
 			}
 		}
 
@@ -251,7 +251,7 @@ namespace CryptoTools.CryptoFiles.UnitTests.DataFiles
 				byte[] content1 = Encoding.UTF8.GetBytes(fileContent);
 				dataFile.Content = content1;
 				dataFile.Save();
-				
+
 				// Now load the data and compare
 				CryptoDataFile dataLoader = new CryptoDataFile(dataFileName);
 				dataLoader.Load();
@@ -276,7 +276,7 @@ namespace CryptoTools.CryptoFiles.UnitTests.DataFiles
 			CryptoDataFile file2 = null;
 			string dataFileName1 = "VersionDataFileTest.dat";
 			byte[] testBytes = new byte[] { 0x11, 0x22 };
-			
+
 			fileOps.DeleteFile(dataFileName1);
 
 			using (AutoDeleteFiles deleteFiles = new AutoDeleteFiles(dataFileName1))
@@ -288,8 +288,8 @@ namespace CryptoTools.CryptoFiles.UnitTests.DataFiles
 				{
 					// Write Content to data file
 					file1 = new CryptoDataFile(dataFileName1);
-			
-					file1.EncryptFile = true; 
+
+					file1.EncryptFile = true;
 					file1.Credentials = credentials;
 					file1.Content = testBytes;
 					file1.Save();
@@ -322,7 +322,7 @@ namespace CryptoTools.CryptoFiles.UnitTests.DataFiles
 				}
 				finally
 				{
-				}				
+				}
 			}
 		}
 	}

@@ -1,11 +1,6 @@
 ﻿using CryptoTools.Cryptography.Exceptions;
 using CryptoTools.Cryptography.Hashing;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Cryptography.Utils
 {
@@ -21,10 +16,25 @@ namespace CryptoTools.Cryptography.Utils
 	public class CryptoCredentialsNullException : CryptoException
 	{
 		public CryptoCredentialsNullException(Type type, string message = null) : base($"CryptoCredentials have not been set for object of type {type.Name}. {message}")
-		{			
+		{
 		}
+
+/* Unmerged change from project 'CryptoTools.Cryptography (net461)'
+Before:
 	}
 	
+
+
+	public class CryptoCredentials
+After:
+	}
+
+
+
+	public class CryptoCredentials
+*/
+	}
+
 
 
 	public class CryptoCredentials
@@ -79,7 +89,7 @@ namespace CryptoTools.Cryptography.Utils
 			set
 			{
 				if (_readOnly) throw new CryptoCredentialsException(string.Format(ReadOnlyExceptionMessage, nameof(Passphrase)));
-				
+
 				_passphrase = value;
 				if (value == null)
 				{
@@ -119,7 +129,7 @@ namespace CryptoTools.Cryptography.Utils
 				{
 					UsePin = true;
 				}
-			}		
+			}
 		}
 
 		/// <summary>
@@ -154,6 +164,6 @@ namespace CryptoTools.Cryptography.Utils
 				return true;
 
 			return false;
-		}		
+		}
 	}
 }

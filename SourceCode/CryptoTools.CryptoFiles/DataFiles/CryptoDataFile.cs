@@ -1,14 +1,9 @@
 ﻿using CryptoTools.CryptoFiles.Exceptions;
 using CryptoTools.Cryptography.Hashing;
-using CryptoTools.Cryptography.Symmetric;
 using CryptoTools.Cryptography.Utils;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.CryptoFiles.DataFiles
 {
@@ -27,7 +22,7 @@ namespace CryptoTools.CryptoFiles.DataFiles
 
 		#region Constructor
 		public CryptoDataFile(string fullFileName, Hasher hasher = null) : this(null, fullFileName, hasher)
-		{			
+		{
 		}
 
 		public CryptoDataFile(CryptoDataFileOptions options = null, string fullFileName = "", Hasher hasher = null)
@@ -58,8 +53,19 @@ namespace CryptoTools.CryptoFiles.DataFiles
 		/// <summary>
 		/// If True the Entire File will be encrypted with a checksum of they bytes at the end of the file
 		/// </summary>
+
+/* Unmerged change from project 'CryptoTools.CryptoFiles (net461)'
+Before:
 		public bool EncryptFile { get; set; } = false;
 		
+		/// <summary>
+After:
+		public bool EncryptFile { get; set; } = false;
+
+		/// <summary>
+*/
+		public bool EncryptFile { get; set; } = false;
+
 		/// <summary>
 		/// If True the the Content (not the entire file) will be encrypted with a checksum of they bytes at the end of the content area
 		/// NOTE: THIS IS NOT IMPLEMENTED YET AND WILL BE ON DEMAD
@@ -109,7 +115,7 @@ namespace CryptoTools.CryptoFiles.DataFiles
 								Concat(Content).
 								Concat(Footer.ReservedArea).
 								ToArray();
-								// Specifically EXCLUDES hash at the end
+			// Specifically EXCLUDES hash at the end
 			return fileContents;
 		}
 
@@ -297,8 +303,8 @@ namespace CryptoTools.CryptoFiles.DataFiles
 			else
 			{
 				bytes = File.ReadAllBytes(FullFileName);
-			}			
-			LoadFromBytes(bytes);			
+			}
+			LoadFromBytes(bytes);
 		}
 
 		/// <summary>
@@ -339,7 +345,7 @@ namespace CryptoTools.CryptoFiles.DataFiles
 				}
 
 				buffer = stream.ToArray();
-			}		
+			}
 			return buffer;
 		}
 
@@ -349,7 +355,7 @@ namespace CryptoTools.CryptoFiles.DataFiles
 		public virtual void Save()
 		{
 			byte[] bytesToWrite;
-			if(EncryptFile)
+			if (EncryptFile)
 			{
 				byte[] unencryptedBytes = SaveToBytes();
 				CryptoBlob blob = new CryptoBlob(GetCredentials(), unencryptedBytes);
@@ -357,13 +363,13 @@ namespace CryptoTools.CryptoFiles.DataFiles
 			}
 			else
 			{
-				bytesToWrite = SaveToBytes();				
+				bytesToWrite = SaveToBytes();
 			}
-			
+
 			using (FileStream fileStream = new FileStream(FullFileName, FileMode.Create))
 			{
 				fileStream.Write(bytesToWrite, 0, bytesToWrite.Length);
-			}			
+			}
 		}
 
 

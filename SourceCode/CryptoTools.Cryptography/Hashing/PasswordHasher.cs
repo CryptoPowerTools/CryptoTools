@@ -5,11 +5,11 @@ using System.Security.Cryptography;
 
 namespace CryptoTools.Cryptography.Hashing
 {
-    /// <summary>
-    /// Creates Secure Password Hashes using the .NET Cryptography Api. The PasswordHash method uses a Salt and Pepper that is configured in the options object.
-    /// When you call the PasswordCheck method it will handle building up the Salt & Pepper for you. 
-    /// </summary>
-    public class PasswordHasher
+	/// <summary>
+	/// Creates Secure Password Hashes using the .NET Cryptography Api. The PasswordHash method uses a Salt and Pepper that is configured in the options object.
+	/// When you call the PasswordCheck method it will handle building up the Salt & Pepper for you. 
+	/// </summary>
+	public class PasswordHasher
 	{
 		#region Private Fields
 		// This should be refactored with the Encrypted generator
@@ -17,7 +17,7 @@ namespace CryptoTools.Cryptography.Hashing
 		private readonly Hasher _hasher;
 
 		// Create a small delay which increase the iteration count for additional brute force protection
-		private const int SecureHashDelay = 10; 
+		private const int SecureHashDelay = 10;
 		#endregion
 
 		#region Public Properties
@@ -29,7 +29,7 @@ namespace CryptoTools.Cryptography.Hashing
 		/// <summary>
 		/// Creates a PaswordHasher with the default settings of SHA256 algorithm and default options
 		/// </summary>
-		public PasswordHasher() : this(null ,null)	{ }
+		public PasswordHasher() : this(null, null) { }
 
 		/// <summary>
 		/// Creates a PaswordHasher with custom options.

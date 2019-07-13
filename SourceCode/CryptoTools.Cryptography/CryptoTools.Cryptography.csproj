@@ -1,9 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-  </PropertyGroup>
+		<TargetFrameworks>netcoreapp2.0;net461</TargetFrameworks>
+	</PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>netcoreapp2.0;net461</TargetFrameworks>
+		<Version>2.0.1</Version>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Crypto Power Tools Developer</Authors>
+		<Company>Crypto Power Tools</Company>
+		<Product>Crypto Power Tools Suite</Product>
+		<Description>CryptoTools.Cryptography provides tons of easy to use wrappers for Asymmetric / Symmetric / Hashing / Encoding and more. Provides easy utilities to encrypt Blobs, password generation, string encryption as required by our applications. All of these classes are configurable using an 'Options' model to configure and customize the Salt, IVSalt, Initialization Vectors, Hash Fingerprints, Key Salts and most other options. This class is an absolute must for our developers as it provide uniform and very simple interfaces as an alternative to the built in .NET Apis. In most case these classes wrap and use the built in .NET libraries and has not third party dependencies.
+		
+Crypto Power Tools - C# / .Net Core 2.0 Developer re-usable libraries &amp; tools for creating powerful, lightweight, secure, private and secure applications.
 
+We are developing these foundation components as building blocks to server both productivity benefits and transparency to our clients and customers. We hope that by sharing this source we can build trust in the community with the benefit of helping other projects to incorporate tested, proven software components into their own solutions with minimal risk.
+
+There are complete Unit Tests and source code on Github. We encourage you to download and explore as your wish.
+
+Our long term goals of our open source software is to encourage other developers to contribute to these community components to provide an even more SOLID and productive starting point for new and existing projects within their own organization.
+		</Description>
+		<Copyright>Crypto Power Tools</Copyright>
+		<RepositoryUrl>https://github.com/CryptoPowerTools/CryptoTools.git</RepositoryUrl>
+		<RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+		<AssemblyVersion>2.0.1.0</AssemblyVersion>
+		<FileVersion>2.0.1.0</FileVersion>
+	</PropertyGroup>
+	
   <ItemGroup>
     <ProjectReference Include="..\CryptoTools.Common\CryptoTools.Common.csproj" />
   </ItemGroup>

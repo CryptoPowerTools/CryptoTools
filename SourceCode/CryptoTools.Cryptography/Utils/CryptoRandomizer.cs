@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Cryptography.Utils
 {
@@ -53,7 +49,7 @@ namespace CryptoTools.Cryptography.Utils
 		public int Next(int minValue, int maxValue)
 		{
 			//return (int)Math.Round(NextDouble() * (maxValue – minValue – 1)) + minValue;
-			return (int)Math.Round(NextDouble() * ((maxValue-minValue) - 1)) + minValue;
+			return (int)Math.Round(NextDouble() * ((maxValue - minValue) - 1)) + minValue;
 		}
 
 		/// <summary>

@@ -2,7 +2,7 @@
 
 namespace CryptoTools.Common.Utils
 {
-    public class ValidateUtils
+	public class ValidateUtils
 	{
 		public static bool IsAlphaNumeric(string input)
 		{

@@ -2,40 +2,48 @@
 using CryptoTools.Cryptography.Hashing;
 using CryptoTools.Cryptography.Symmetric;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Cryptography.Utils
 {
 
-	
+
 
 	public class CryptoBlob
 	{
-	//	public class BlobData
-	//	{
-	//		public byte[] Data { get; set; }
-	//		public byte[] Hash { get; set; } = new byte[32];
-	//		public int HashSize { get { return 32;  } }
-	//	}
+		//	public class BlobData
+		//	{
+		//		public byte[] Data { get; set; }
+		//		public byte[] Hash { get; set; } = new byte[32];
+		//		public int HashSize { get { return 32;  } }
+		//	}
 
 		public CryptoCredentials Credentials { get; set; }
 		private byte[] _encryptedBytes;
 		private Hasher _hasher = new Hasher();
 		private readonly int HashSize;
 
+
+/* Unmerged change from project 'CryptoTools.Cryptography (net461)'
+Before:
 		private SymmetricEncryptor _encryptor;
 		
+		public CryptoBlob(CryptoCredentials credentials, byte[] decryptedBytes = null)
+After:
+		private SymmetricEncryptor _encryptor;
+
+		public CryptoBlob(CryptoCredentials credentials, byte[] decryptedBytes = null)
+*/
+		private SymmetricEncryptor _encryptor;
+
 		public CryptoBlob(CryptoCredentials credentials, byte[] decryptedBytes = null)
 		{
 			Credentials = credentials;
 			_encryptor = new SymmetricEncryptor(Credentials);
-			if(decryptedBytes != null) Encrypt(decryptedBytes);
+			if (decryptedBytes != null) Encrypt(decryptedBytes);
 			HashSize = Hasher.CalculateHashBytesLength(_hasher.GetAlgorithm());
 		}
-				
+
 
 		#region Public Methods
 		/// <summary>
@@ -54,7 +62,7 @@ namespace CryptoTools.Cryptography.Utils
 			byte[] fullEncryptedBytes = encryptedBytes.ToList().Concat(checksumEncrypted).ToArray();
 
 			_encryptedBytes = fullEncryptedBytes;
-			
+
 		}
 
 		/// <summary>
@@ -70,7 +78,7 @@ namespace CryptoTools.Cryptography.Utils
 			// Encrypted Block
 			byte[] checksumEncrypted = _encryptedBytes.Skip(_encryptedBytes.Length - HashSize).ToArray();
 			byte[] encryptedBytes = _encryptedBytes.Take(_encryptedBytes.Length - HashSize).ToArray();
-		
+
 			// Decrypted Block
 			byte[] fullDecryptedData = _encryptor.DecryptBytes(encryptedBytes);
 			byte[] checksumDecrypted = fullDecryptedData.Skip(fullDecryptedData.Length - HashSize).ToArray();
@@ -81,7 +89,7 @@ namespace CryptoTools.Cryptography.Utils
 
 			// Strip the Checksum and you have your original data
 			byte[] decryptedBytes = fullDecryptedData.Take(fullDecryptedData.Length - HashSize).ToArray();
-			
+
 			return decryptedBytes;
 		}
 
@@ -102,13 +110,13 @@ namespace CryptoTools.Cryptography.Utils
 		{
 			return _encryptedBytes;
 		}
-	
+
 		public void Clear()
 		{
-			if(_encryptedBytes != null)
+			if (_encryptedBytes != null)
 			{
-				Array.Clear(_encryptedBytes, 0, _encryptedBytes.Length);				
-			}			
+				Array.Clear(_encryptedBytes, 0, _encryptedBytes.Length);
+			}
 		}
 
 		/// <summary>

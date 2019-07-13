@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Cryptography.Exceptions
 {
 	public class CryptoException : Exception
 	{
-		public CryptoException(string message = "", Exception innerException=null) : base(message, innerException)
-		{	
-			
-					
+		public CryptoException(string message = "", Exception innerException = null) : base(message, innerException)
+		{
+
+
 		}
 	}
 
@@ -19,7 +15,7 @@ namespace CryptoTools.Cryptography.Exceptions
 	{
 
 		public CryptoDecryptionException(string message = "", Exception innerException = null) : base(message, innerException)
-		{	
+		{
 
 		}
 	}

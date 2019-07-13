@@ -3,17 +3,13 @@ using CryptoTools.Cryptography.Exceptions;
 using CryptoTools.Cryptography.Hashing;
 using CryptoTools.Cryptography.Utils;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Cryptography.Symmetric
 {
-	public class SymmetricEncryptor : IDisposable	
+	public class SymmetricEncryptor : IDisposable
 	{
 		#region Private Fields
 		private ILog Log = Logger.CreateInstance(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -27,9 +23,9 @@ namespace CryptoTools.Cryptography.Symmetric
 		#endregion
 
 		#region Constructors
-		public SymmetricEncryptor(	CryptoCredentials credentials, 
-									SymmetricAlgorithm algorithm = null, 
-									SymmetricEncryptorOptions options = null, 
+		public SymmetricEncryptor(CryptoCredentials credentials,
+									SymmetricAlgorithm algorithm = null,
+									SymmetricEncryptorOptions options = null,
 									HashAlgorithm hashAlgorithm = null) : this(algorithm, options, hashAlgorithm)
 		{
 			Credentials = credentials;
@@ -59,7 +55,7 @@ namespace CryptoTools.Cryptography.Symmetric
 		}
 		private void ReInitialize()
 		{
-			if(Credentials==null)
+			if (Credentials == null)
 			{
 				throw new CryptoCredentialsNullException(this.GetType());
 			}
@@ -73,7 +69,7 @@ namespace CryptoTools.Cryptography.Symmetric
 		#endregion
 
 		#region Public Methods
-			
+
 		public byte[] EncryptBytes(byte[] bytesIn)
 		{
 			byte[] bytesOut;
@@ -100,7 +96,7 @@ namespace CryptoTools.Cryptography.Symmetric
 				Log.ErrorException(exception, this);
 				throw;
 			}
-			
+
 			return bytesOut;
 
 		}
@@ -113,7 +109,7 @@ namespace CryptoTools.Cryptography.Symmetric
 				ReInitialize();
 				ICryptoTransform transform = _algorithm.CreateDecryptor();
 				output = transform.TransformFinalBlock(encryptedBytes, 0, encryptedBytes.Length);
-			
+
 			}
 			catch (CryptographicException cryptoException)
 			{
@@ -128,7 +124,7 @@ namespace CryptoTools.Cryptography.Symmetric
 			}
 			return output;
 		}
-				
+
 
 		public void Clear()
 		{

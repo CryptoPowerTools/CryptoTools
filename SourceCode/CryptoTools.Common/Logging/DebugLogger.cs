@@ -1,10 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.
+/* Unmerged change from project 'CryptoTools.Common (net461)'
+Before:
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
+After:
+using System.Diagnostics;
+using System.Linq;
+*/
+Runtime.CompilerServices;
+/* Unmerged change from project 'CryptoTools.Common (net461)'
+Before:
 using System.Threading.Tasks;
 using System.Diagnostics;
+After:
+using System.Threading.Tasks;
+*/
+
 
 namespace CryptoTools.Common.Logging
 {

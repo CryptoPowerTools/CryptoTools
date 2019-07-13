@@ -86,14 +86,14 @@ namespace CryptoTools.Common.Utils
 			return message;
 		}
 
-        public static string FormatErrorMessage(object className, string methodName, string errorMessage)
-        {
-            string message = FormatErrorPrefix(className, methodName);
-            message += errorMessage;
-            return message;
-        }
+		public static string FormatErrorMessage(object className, string methodName, string errorMessage)
+		{
+			string message = FormatErrorPrefix(className, methodName);
+			message += errorMessage;
+			return message;
+		}
 
-		
+
 		public static string FormatErrorMessage(object classReference, string methodName, Exception e, string customMessage = "")
 		{
 			string className = GetClassName(classReference);
@@ -122,11 +122,11 @@ namespace CryptoTools.Common.Utils
 					message += " Inner Exception Message: " + e.InnerException.Message;
 
 					///TODO - Add some additional logic to iterate more inner exception if you have them
-				}			
+				}
 			}
 
 
-						
+
 			return message;
 		}
 

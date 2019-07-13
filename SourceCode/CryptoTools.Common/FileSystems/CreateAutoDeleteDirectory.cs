@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Common.FileSystems
 {
@@ -14,7 +10,7 @@ namespace CryptoTools.Common.FileSystems
 		private string _directoryName;
 		private FileManager _fileMan = new FileManager();
 
-		
+
 		public CreateAutoDeleteDirectory(List<DirectoryInfo> directories)
 		{
 			_directories = directories;
@@ -34,7 +30,7 @@ namespace CryptoTools.Common.FileSystems
 
 		public void Dispose()
 		{
-			if(_fileMan.DirectoryExists(_directoryName))
+			if (_fileMan.DirectoryExists(_directoryName))
 				_fileMan.DeleteDirectory(_directoryName);
 
 			// Delete Files

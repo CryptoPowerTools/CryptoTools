@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.Common.Utils
 {
@@ -36,13 +33,13 @@ namespace CryptoTools.Common.Utils
 			// Concatenate all the elements into a StringBuilder.
 			StringBuilder builder = new StringBuilder();
 
-			for(int i=0; i< array.Length; i++)
+			for (int i = 0; i < array.Length; i++)
 			{
 				builder.Append(array[i]);
 				if (appendNewLine)
 				{
 					// Append NewLine unless it is the last item
-					if(i != array.Length - 1)
+					if (i != array.Length - 1)
 						builder.Append(Environment.NewLine);
 				}
 			}

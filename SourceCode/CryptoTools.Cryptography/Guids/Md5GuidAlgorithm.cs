@@ -1,14 +1,14 @@
-﻿using CryptoTools.Cryptography.Hashing;
-using CryptoTools.Common.Utils;
+﻿using CryptoTools.Common.Utils;
+using CryptoTools.Cryptography.Hashing;
 using System;
 using System.Security.Cryptography;
 
 namespace CryptoTools.Cryptography.Guids
 {
-    public class Md5GuidAlgorithm : IGuidAlgorithm
+	public class Md5GuidAlgorithm : IGuidAlgorithm
 	{
 		Hasher _hasher = new Hasher(MD5.Create());
-		
+
 		public string NewGuid()
 		{
 			string random = Guid.NewGuid().ToString("N");
@@ -16,9 +16,9 @@ namespace CryptoTools.Cryptography.Guids
 
 			// Create and Append Checksum
 			string checksum = _hasher.Hash(md5);
-			string guid = $"{md5}{checksum.Substring(0,4)}";
+			string guid = $"{md5}{checksum.Substring(0, 4)}";
 
-			return guid;			
+			return guid;
 		}
 
 		public bool Verify(string guid)
@@ -49,7 +49,7 @@ namespace CryptoTools.Cryptography.Guids
 				return false;
 			}
 
-			return true;			
+			return true;
 		}
 	}
 }

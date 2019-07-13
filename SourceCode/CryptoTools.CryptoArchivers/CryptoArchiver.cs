@@ -1,15 +1,7 @@
 ﻿using CryptoTools.Common.FileSystems;
 using CryptoTools.CryptoArchivers.Archivers;
-using CryptoTools.Cryptography.Hashing;
 using CryptoTools.Cryptography.Utils;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Security;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.CryptoArchivers
 {
@@ -48,25 +40,25 @@ namespace CryptoTools.CryptoArchivers
 
 		public CryptoArchiver(string fullFileName, IFileArchiver archiver = null)
 		{
-			if(archiver==null)
+			if (archiver == null)
 			{
 				archiver = new ZipArchiver(fullFileName);
 			}
 			_archiver = archiver;
 			_archiver.FullFileName = fullFileName;
 
-		}		
+		}
 
 		public void CreateFromDirectory(string directoryName)
 		{
 			_archiver.CreateFromDirectory(directoryName);
 		}
-		
+
 		public void ExtractToDirectory(string directory)
 		{
 			_archiver.ExtractToDirectory(directory);
 		}
-		
+
 		public byte[] GetBytesFromDirectory(string directoryName)
 		{
 			FileManager fileMan = new FileManager();
@@ -101,6 +93,6 @@ namespace CryptoTools.CryptoArchivers
 			}
 		}
 
-	
+
 	}
 }

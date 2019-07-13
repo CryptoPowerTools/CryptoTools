@@ -1,9 +1,4 @@
 ﻿using CryptoTools.Common.Reflection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoTools.CryptoFiles.DataFiles
 {
@@ -18,7 +13,7 @@ namespace CryptoTools.CryptoFiles.DataFiles
 		public byte[] ContentFormat { get; set; }
 		public int? ContentVersion { get; set; }
 		public byte[] EndFileFormat { get; set; }
-		
+
 		public CryptoDataFileOptions()
 		{
 		}

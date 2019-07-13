@@ -1,8 +1,7 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using CryptoTools.Common.FileSystems;
 using CryptoTools.Cryptography.Utils;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Security;
-using CryptoTools.Common.FileSystems;
 
 namespace CryptoTools.Cryptography.UnitTests.Utils
 {
@@ -13,13 +12,13 @@ namespace CryptoTools.Cryptography.UnitTests.Utils
 		public void CryptoString_BasicUsuage()
 		{
 			string password = "MyPassword";
-			SecureString secureString= CryptoString.StringToSecureString(password); // Only used for test
+			SecureString secureString = CryptoString.StringToSecureString(password); // Only used for test
 			string decryptedString;
 
 			CryptoString crypto = new CryptoString(secureString);
 
 			// Make sure the ToString DOES NOT return the string
-			decryptedString	= crypto.ToString();
+			decryptedString = crypto.ToString();
 			Assert.IsFalse(decryptedString.Equals(password));
 
 			// Use this only if SecureString is not accepted
@@ -31,7 +30,7 @@ namespace CryptoTools.Cryptography.UnitTests.Utils
 			// When you done fill the variable full of random Text
 			// NOTE: Not totally secure, but an added level of obsfucation
 			useString = CryptoString.GenerateRandomText(10000);
-			
+
 
 		}
 
@@ -53,7 +52,7 @@ namespace CryptoTools.Cryptography.UnitTests.Utils
 			SecureString secureString = CryptoString.StringToSecureString(password);
 			string unsecureString = CryptoString.SecureStringToString(secureString);
 			Assert.IsTrue(password.Equals(unsecureString));
-			
+
 		}
 	}
 }

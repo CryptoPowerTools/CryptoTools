@@ -1,8 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-  </PropertyGroup>
+		<TargetFrameworks>netcoreapp2.0;net461</TargetFrameworks>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<TargetFrameworks>netcoreapp2.0;net461</TargetFrameworks>
+		<Version>2.0.1</Version>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Crypto Power Tools Developer</Authors>
+		<Company>Crypto Power Tools</Company>
+		<Product>Crypto Power Tools Suite</Product>
+		<Description>CryptoTools.CryptoFiles contains helpers to allow an application to create a unique data file that is fully encrypted, secure to be used where custom file format is required. Although, this functionality might not be that common in the community many of our custom application use this level of obsfuscation and privacy as an added layer of protection for mission critical applications. You can custom the files using custom headers, footers as per application requirement.
+			
+Crypto Power Tools - C# / .Net Core 2.0 Developer re-usable libraries &amp; tools for creating powerful, lightweight, secure, private and secure applications.
+
+We are developing these foundation components as building blocks to server both productivity benefits and transparency to our clients and customers. We hope that by sharing this source we can build trust in the community with the benefit of helping other projects to incorporate tested, proven software components into their own solutions with minimal risk.
+
+There are complete Unit Tests and source code on Github. We encourage you to download and explore as your wish.
+
+Our long term goals of our open source software is to encourage other developers to contribute to these community components to provide an even more SOLID and productive starting point for new and existing projects within their own organization.
+		</Description>
+		<Copyright>Crypto Power Tools</Copyright>
+		<RepositoryUrl>https://github.com/CryptoPowerTools/CryptoTools.git</RepositoryUrl>
+		<RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+		<AssemblyVersion>2.0.1.0</AssemblyVersion>
+		<FileVersion>2.0.1.0</FileVersion>
+	</PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CryptoTools.Common\CryptoTools.Common.csproj" />

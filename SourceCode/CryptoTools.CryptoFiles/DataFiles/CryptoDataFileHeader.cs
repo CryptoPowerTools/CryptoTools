@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CryptoTools.CryptoFiles.DataFiles
+﻿namespace CryptoTools.CryptoFiles.DataFiles
 {
 
 	/// <summary>
@@ -14,7 +8,7 @@ namespace CryptoTools.CryptoFiles.DataFiles
 	{
 		#region Public Data Fields
 		public byte[] FileFormat { get; set; } = new byte[2];
-		public int FileVersion { get; set; } =1;
+		public int FileVersion { get; set; } = 1;
 		public byte[] ContentFormat { get; set; } = new byte[2];
 		public int ContentVersion { get; set; } = 1;
 		public int ContentSize { get; set; } = 0;
