@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace Formula.Core.Serialization
+namespace CryptoTools.Common.Serialization
 {
 	/// <summary>
 	/// Provides a centralized place for all serizlization code with EASY to use methods. This also abstract any dependencies 
