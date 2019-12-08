@@ -9,7 +9,7 @@ namespace CryptoTools.Common.UnitTests.Logging
 		[TestMethod]
 		public void BasicUsage()
 		{
-			// Create a Logger. This would generally be done inside the application startup code a single time for each application
+			// Create a Logger. Th                               is would generally be done inside the application startup code a single time for each application
 			ILog log = new DebugLogger();
 			Logger.SetLogger(log);
 
